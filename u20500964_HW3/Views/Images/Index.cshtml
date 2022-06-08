@@ -1,0 +1,30 @@
+﻿@model IEnumerable<u20500964_HW3.Models.FileModel>
+
+@{
+    ViewBag.Title = "View";
+}
+
+<h2>View</h2>
+
+
+<div class="row">
+    @if (Model != null)
+    {
+
+        foreach (var item in Model)
+        {
+    <div class="col-md-4">
+        <img src="~/Media/Images/@item.FileName" style="height: 200px" />
+        @Html.DisplayFor(modelItem => item.FileName)
+        <div>
+            @Html.ActionLink("Delete", "Delete", new { FileName = item.FileName }) |
+            @Html.ActionLink("Download", "Download", new { FileName = item.FileName }) )
+        </div>
+    </div>
+            
+        }
+
+    }
+
+
+</div>

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<u20500964_HW3.Models.FileModel>
+
+@{
+    ViewBag.Title = "View";
+}
+
+<h2>View</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FileName)
+        </th>
+        <th></th>
+    </tr>
+
+    @if (Model != null)
+    {
+
+    foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FileName)
+            </td>
+
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { FileName = item.FileName }) |
+                @Html.ActionLink("Download", "Download", new { FileName = item.FileName }) )
+            </td>
+        </tr>
+    }
+
+    }
+
+
+</table>
